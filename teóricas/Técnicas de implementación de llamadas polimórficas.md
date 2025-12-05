@@ -114,3 +114,45 @@ Conclusiones sobre técnicas estáticas:
 - el tiempo utilizado para la búsqueda tiene cota superior puesto que no depende del comportamiento del programa como en GLC o de la localidad del mismo como IC y PIC.
 - tiempo que utilizan para generar las estructuras de datos que necesitan para funcionar es mucho mayor que las de las técnicas dinámicas. 
 - mayor inconveniente: tiempo de compilación necesario y falta de flexibilidad y adaptabilidad al comportamiento del sistema.
+
+---
+Diapos Hernán:
+```C
+try {
+    doSomething();
+} catch (RuntimeException e){
+    handle(e);
+}
+```
+
+donde `RuntimeException` es la **condición de handleo**, y hay **acoplamiento con tipo de Excepción**
+
+- Sólo se ejecuta el handler si se cumple con la condición de handleo
+- Se pasa al siguiente handler si no se cumple con la condición de handleo
+- Si se llega a la raíz del árbol de ejecución y no hay handler significa que se levantó una excepción no handleada. 
+
+**Preguntas y respuestas:**
+1. ¿Cuándo se debe levantar una excepción?
+Cuando se rompe un contrato, en particular una precondición.
+
+2. ¿Quién debe verificar que el contrato se cumpla?
+*Escuela C*: El objeto que envía el mensaje/función llamadora debe asegurar las pre-condiciones.
+desventaja: código repetido e inseguridad.
+
+*Escuela Lisp*: El objeto que recibe el mensaje/función llamadora debe asegurar las pre-condiciones
+ventaja: validaciones en un lugar y seguridad
+
+3. ¿Quién debe handlear las excepciones?
+Los objetos que se encuentran más arriba en el árbol de ejecución ya que tienen más contexto de qué se está haciendo y por lo tanto se puede decidir mejor qué hacer.
+
+4. ¿Cómo se debe handlearlas?
+Importante: solo se debe handlear una excepción si se puede resolver la ruptura del contrato. 
+No handlearlas si no se puede hacer nada con ellas. 
+Handlear todas las excepciones en la raíz del árbol de ejecución
+
+Lo que determina la necesidad de existir un tipo de excepción es si se la handlea o no. Esto se debe al acoplamiento que existe en la condición de handleo. 
+
+A Fully Object-Oriented Exception Handling System: Rationale and Smalltalk
+Implementation
+○ Exception Handling and Object-Oriented Programming: towards a synthesis
+○ Improving exception handling with Object-Oriented Programming

@@ -40,7 +40,7 @@ Asimismo, `Class` debe ser instancia de alguna clase, debido a que es un objeto 
 Bootstrapping para evitar "el problema del huevo y la gallina". 
 
 Este es el metamodelo de smalltalk 76.      
-![metamodelo](/img/st76.png)     
+![metamodelo](img/st76.png)     
 - flechas punteadas: es instancia de
 - flecha y triángulo: es subclase de
 
@@ -68,7 +68,7 @@ Las `... class` son instancias de la clase que representa las clases de las clas
 
 `Metaclass` es instancia de `Metaclass class`. `Metaclass class` es instancia de `Metaclass`.
 
-![metamodelo_2](/img/st80.png)
+![metamodelo_2](img/st80.png)
 
 *CAPÍTULO 5 DEL BLUEBOOK aclara acerca de este tema.*
 
